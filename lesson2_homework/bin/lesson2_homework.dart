@@ -30,7 +30,7 @@ void main() {
     'h',
     'j'
   ];
-  print(listOne.getRange(2, 9));
+  print(listOne.getRange(2, 9).toList());
 
   // Задание 4
   List b = [1, 2, 3, 4, 5, 6, 7];
