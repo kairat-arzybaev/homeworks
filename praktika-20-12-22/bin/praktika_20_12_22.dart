@@ -8,10 +8,9 @@ void main(List<String> arguments) {
   // getReverse(input1);
 
   // TASK 2 - TEST
-  // print('Enter a number');
-
-  // String input2 = stdin.readLineSync()!;
-  // findMax(input2);
+  print('Enter a number');
+  String input2 = stdin.readLineSync()!;
+  findMax(input2);
 
   // TASK 3 - TEST
   // print('Enter a number');
@@ -38,13 +37,11 @@ void findMax(String input) {
 }
 
 // task 3
-void divideByTWo(double number) {
-  double sum = 0;
+void divideByTWo(int n) {
+  int sum = 0;
 
-  for (int i = 0; i <= number; i++) {
-    var a = number / 2;
-    var b = a / 2;
-    sum += b;
+  for (int i = 0; i <= n; i++) {
+    sum += i;
   }
   print(sum);
 }
