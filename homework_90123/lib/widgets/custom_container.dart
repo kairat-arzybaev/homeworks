@@ -6,13 +6,12 @@ class CustomContainer extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.title,
-    required this.sizedBox,
     required this.subtitle,
   }) : super(key: key);
 
   final String title;
   final Icon icon;
-  final Widget sizedBox;
+
   final String subtitle;
 
   @override
@@ -40,7 +39,7 @@ class CustomContainer extends StatelessWidget {
                   fontFamily: 'Poppins',
                   color: Color(0xFF000000)),
             ),
-            sizedBox,
+            const Spacer(),
             Text(
               subtitle,
               style: const TextStyle(
