@@ -32,23 +32,14 @@ class MyHomePage extends StatelessWidget {
         CustomContainer(
             title: 'Current Weight',
             icon: Icon(Icons.calculate_outlined),
-            sizedBox: SizedBox(
-              width: 85,
-            ),
             subtitle: '--- kgs'),
         CustomContainer(
             title: 'Target Weight',
             icon: Icon(Icons.calculate_outlined),
-            sizedBox: SizedBox(
-              width: 85,
-            ),
             subtitle: '--- kgs'),
         CustomContainer(
             title: 'Height',
             icon: Icon(Icons.height_outlined),
-            sizedBox: SizedBox(
-              width: 130,
-            ),
             subtitle: '--- cms'),
       ],
     ));
