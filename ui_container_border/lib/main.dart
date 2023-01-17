@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_container_border/custom_container.dart';
+import 'package:ui_container_border/custom_anim_container.dart';
 
 void main() {
   runApp(const MyApp());
