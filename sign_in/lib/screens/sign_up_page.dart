@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:sign_in/assets/images/app_image_urls.dart';
 import 'package:sign_in/assets/themes/app_text_styles.dart';
-import 'package:sign_in/screens/cars_page.dart';
-import 'package:sign_in/screens/sign_up_page.dart';
 import 'package:sign_in/widgets/custom_elev_button.dart';
 import 'package:sign_in/widgets/custom_out_button.dart';
 import 'package:sign_in/widgets/custom_textfield.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+import 'login_page.dart';
+
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
@@ -30,11 +30,18 @@ class _LoginPageState extends State<LoginPage> {
                 height: 100,
               ),
               Text(
-                'Sign In',
+                'Sign Up',
                 style: AppTextStyles.headline1,
               ),
               const SizedBox(
-                height: 70,
+                height: 60,
+              ),
+              const CustomTextField(
+                title: 'FULL NAME',
+                hintText: 'Lorem Ipsum',
+              ),
+              const SizedBox(
+                height: 30,
               ),
               const CustomTextField(
                 obscureText: false,
@@ -60,23 +67,13 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 20,
               ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Forgot password?',
-                  style: AppTextStyles.textS11W400,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
               CustomElevButton(
-                elevButtonText: 'Log In',
+                elevButtonText: 'Sign Up',
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const CarsPage()));
+                          builder: (context) => const LoginPage()));
                 },
               ),
               const SizedBox(
@@ -103,22 +100,25 @@ class _LoginPageState extends State<LoginPage> {
                   imagePath: AppImageUrls.facebook,
                   buttonText: 'Continue With Facebook'),
               const SizedBox(
-                height: 40,
+                height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Don’t Have an account yet?',
+                    'Have an account already?',
                     style: AppTextStyles.textS15W300,
                   ),
                   TextButton(
-                    onPressed: () => Navigator.push(
+                    onPressed: () {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SignUpPage())),
+                            builder: (context) => const LoginPage()),
+                      );
+                    },
                     child: Text(
-                      'SIGN UP',
+                      'SIGN IN',
                       style: AppTextStyles.textS13W700,
                     ),
                   )

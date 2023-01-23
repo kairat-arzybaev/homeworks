@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../app_text_styles.dart';
+import '../assets/themes/app_text_styles.dart';
 
 class CustomTextField extends StatefulWidget {
   final String title;
