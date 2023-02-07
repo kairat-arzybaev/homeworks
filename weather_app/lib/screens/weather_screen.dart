@@ -6,9 +6,10 @@ import 'package:weather_app/providers/city_weather_provider.dart';
 
 class WeatherScreen extends StatelessWidget {
   WeatherScreen({super.key});
-  String cityName = 'Bishkek';
+  String cityName = 'New York';
   String apiKey = '7c016019b9c94f9c8b4b8fa4ab1c8370';
   String units = 'metric';
+  TextEditingController cityController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +39,7 @@ class WeatherScreen extends StatelessWidget {
                   height: 50,
                 ),
                 TextField(
+                  controller: cityController,
                   textCapitalization: TextCapitalization.words,
                   style: const TextStyle(fontSize: 22, color: Colors.white),
                   enabled: true,
@@ -50,7 +52,9 @@ class WeatherScreen extends StatelessWidget {
                     prefixIcon: IconButton(
                       onPressed: () {
                         cityData.getCityWeather(
-                            cityName: cityName, apiKey: apiKey, units: units);
+                            cityName: cityController.text,
+                            apiKey: apiKey,
+                            units: units);
                       },
                       icon: const Icon(Icons.search),
                       color: Colors.white,
@@ -60,6 +64,13 @@ class WeatherScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
+
+                  // onChanged: (value) => cityData.getCityWeather(
+                  //     cityName: value, apiKey: apiKey, units: units),
+                  onEditingComplete: () => cityData.getCityWeather(
+                      cityName: cityController.text,
+                      apiKey: apiKey,
+                      units: units),
                 ),
                 SizedBox(
                     height: 200,
@@ -68,16 +79,16 @@ class WeatherScreen extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      '${cityData.cityWeather?.main.temp}',
+                      '${cityData.cityWeather?.main?.temp}',
                       textAlign: TextAlign.center,
                       style: const TextStyle(color: Colors.white, fontSize: 64),
                     ),
                     Text(
-                      '${cityData.cityWeather?.weather[0].description}',
+                      '${cityData.cityWeather?.weather?[0].description}',
                       style: const TextStyle(color: Colors.white, fontSize: 20),
                     ),
                     Text(
-                      'Max: ${cityData.cityWeather?.main.tempMax}   Min: ${cityData.cityWeather?.main.tempMin}',
+                      'Max: ${cityData.cityWeather?.main?.tempMax}   Min: ${cityData.cityWeather?.main?.tempMin}',
                       style: const TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ],
@@ -108,7 +119,7 @@ class WeatherScreen extends StatelessWidget {
                         width: 10,
                       ),
                       Text(
-                        '${cityData.cityWeather?.main.humidity}',
+                        '${cityData.cityWeather?.main?.humidity}',
                         style:
                             const TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -121,7 +132,7 @@ class WeatherScreen extends StatelessWidget {
                         width: 10,
                       ),
                       Text(
-                        '${cityData.cityWeather?.main.grndLevel}',
+                        '${cityData.cityWeather?.main?.pressure}',
                         style:
                             const TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -134,7 +145,7 @@ class WeatherScreen extends StatelessWidget {
                         width: 10,
                       ),
                       Text(
-                        '${cityData.cityWeather?.wind.speed}',
+                        '${cityData.cityWeather?.wind?.speed}',
                         style:
                             const TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -170,7 +181,7 @@ class WeatherScreen extends StatelessWidget {
                                   color: Colors.white, fontSize: 18))
                         ],
                       ),
-                      Text('${cityData.cityWeather?.main.temp}',
+                      Text('${cityData.cityWeather?.main?.temp}',
                           style: const TextStyle(
                               color: Colors.white, fontSize: 18)),
                       SizedBox(

@@ -15,6 +15,7 @@ class CityWeatherProvider extends ChangeNotifier {
 
     if (response.statusCode == 200) {
       cityWeather = CityWeatherModel.fromJson(response.data);
+
       notifyListeners();
     } else {
       throw Exception('Data is not loaded');
