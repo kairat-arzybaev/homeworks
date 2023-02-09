@@ -6,7 +6,7 @@ import 'package:weather_app/providers/city_weather_provider.dart';
 
 class WeatherScreen extends StatelessWidget {
   WeatherScreen({super.key});
-  String cityName = 'New York';
+
   String apiKey = '7c016019b9c94f9c8b4b8fa4ab1c8370';
   String units = 'metric';
   TextEditingController cityController = TextEditingController();
@@ -40,7 +40,7 @@ class WeatherScreen extends StatelessWidget {
                 ),
                 TextField(
                   controller: cityController,
-                  textCapitalization: TextCapitalization.words,
+                  // textCapitalization: TextCapitalization.words,
                   style: const TextStyle(fontSize: 22, color: Colors.white),
                   enabled: true,
                   decoration: InputDecoration(
@@ -73,13 +73,15 @@ class WeatherScreen extends StatelessWidget {
                       units: units),
                 ),
                 SizedBox(
-                    height: 200,
-                    width: 280,
-                    child: Image.asset('assets/sun_cloud.png')),
+                  height: 200,
+                  width: 280,
+                  child: Image.network(
+                      'http://openweathermap.org/img/wn/${cityData.cityWeather?.weather?[0].icon}@4x.png'),
+                ),
                 Column(
                   children: [
                     Text(
-                      '${cityData.cityWeather?.main?.temp}',
+                      '${cityData.cityWeather?.main?.temp?.round()}',
                       textAlign: TextAlign.center,
                       style: const TextStyle(color: Colors.white, fontSize: 64),
                     ),
@@ -88,7 +90,7 @@ class WeatherScreen extends StatelessWidget {
                       style: const TextStyle(color: Colors.white, fontSize: 20),
                     ),
                     Text(
-                      'Max: ${cityData.cityWeather?.main?.tempMax}   Min: ${cityData.cityWeather?.main?.tempMin}',
+                      'Max: ${cityData.cityWeather?.main?.tempMax?.round()}   Min: ${cityData.cityWeather?.main?.tempMin?.round()}',
                       style: const TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ],
@@ -187,10 +189,8 @@ class WeatherScreen extends StatelessWidget {
                       SizedBox(
                         height: 45,
                         width: 50,
-                        child: Image.asset(
-                          'assets/sun_cloud.png',
-                          fit: BoxFit.cover,
-                        ),
+                        child: Image.network(
+                            'http://openweathermap.org/img/wn/${cityData.cityWeather?.weather?[0].icon}@2x.png'),
                       ),
                       Text(DateFormat.Hm().format(DateTime.now()),
                           style: const TextStyle(
