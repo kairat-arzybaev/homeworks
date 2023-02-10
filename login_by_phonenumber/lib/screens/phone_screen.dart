@@ -65,17 +65,20 @@ class PhoneScreen extends StatelessWidget {
                           fontSize: 25,
                           fontWeight: FontWeight.w600),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Phone',
-                          hintStyle: const TextStyle(color: Colors.white),
-                          filled: true,
-                          fillColor: const Color(0x33FFFFFF),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(15),
+                    InkWell(
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 50),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Phone',
+                            hintStyle: const TextStyle(color: Colors.white),
+                            filled: true,
+                            fillColor: const Color(0x33FFFFFF),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
                           ),
                         ),
                       ),

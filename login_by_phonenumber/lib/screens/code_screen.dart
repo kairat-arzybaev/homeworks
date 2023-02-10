@@ -80,20 +80,23 @@ class CodeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 150),
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        decoration: InputDecoration(
-                          hintText: 'Sign in',
-                          hintStyle: const TextStyle(
-                            color: Colors.white,
-                          ),
-                          filled: true,
-                          fillColor: const Color(0x33FFFFFF),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(15),
+                    InkWell(
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 150),
+                        child: TextField(
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            hintText: 'Sign in',
+                            hintStyle: const TextStyle(
+                              color: Colors.white,
+                            ),
+                            filled: true,
+                            fillColor: const Color(0x33FFFFFF),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
                           ),
                         ),
                       ),
