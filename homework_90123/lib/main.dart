@@ -27,22 +27,26 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        CustomContainer(
-            title: 'Current Weight',
-            icon: Icon(Icons.calculate_outlined),
-            subtitle: '--- kgs'),
-        CustomContainer(
-            title: 'Target Weight',
-            icon: Icon(Icons.calculate_outlined),
-            subtitle: '--- kgs'),
-        CustomContainer(
-            title: 'Height',
-            icon: Icon(Icons.height_outlined),
-            subtitle: '--- cms'),
-      ],
-    ));
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 35.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            CustomContainer(
+                title: 'Current Weight',
+                icon: Icon(Icons.calculate_outlined),
+                subtitle: '--- kgs'),
+            CustomContainer(
+                title: 'Target Weight',
+                icon: Icon(Icons.calculate_outlined),
+                subtitle: '--- kgs'),
+            CustomContainer(
+                title: 'Height',
+                icon: Icon(Icons.height_outlined),
+                subtitle: '--- cms'),
+          ],
+        ),
+      ),
+    );
   }
 }
